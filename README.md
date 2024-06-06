@@ -1,2 +1,4 @@
 # curly-Connie
-it's a rust tcp server for a app called connie that we are making 
+this repo is for testing diffrent components and logic in rust it's not ready for use and later the repo will
+be modified to be a multi platform server app called connie and then another repo will be made for android 
+client  
