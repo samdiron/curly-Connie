@@ -1,0 +1,21 @@
+so to make the server able to do muliable functions we have to use few protocols depending on the use 
+for audio streaming RTP/UDP
+for video streaming RTMP 
+for transefer TCP 
+and the main socket is going to be TCP that send info about the server and files to the client 
+then on the request of the clinet another socket will be activated on the same ip but different port 
+
+tools:
+surrealdb for database
+ffmpeg for handling video, audio, and other multimedia files
+tauri for creating the desktop app
+docker because there in alot of tools i don't think everybody have them 
+
+note this is just a beta backend every thing will be modified
+but everything will be built in rust except the frontend will be built in tauri it's a rust framework that permit to use a javascript framework as a 
+frontend we will use next.js for now also tailwind/shadcn will be used 
+
+and in the future a phone client will be made and the tools we're thinking of using for that is 
+react naitve
+and for the all the backend client will be made in pure kotlin to get the fastest preformace 
+note: i will not make an ios version 
