@@ -1,0 +1,2 @@
+make a file sorter / finder / authenticator / prosccesor
+i think we're goingto write a lot of code to start testing
