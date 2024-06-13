@@ -5,6 +5,7 @@ use std::io::*;
 //use std::io::Read;
 //use std::io::Write;
 use std::net::*;
+
 // today i was just doing research about networking and i think i learned something so tomorrow i will finish the tcp server and client and improve all the tcp functions and it's the easiest part of this project but i will do it and finish it no slaking 
 //TODO add more info like image and more
 /*struct Item {
