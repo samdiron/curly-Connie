@@ -1,11 +1,13 @@
 use std::fs;
 //imports
+use std::io;
 use std::io::*;
+//use std::io::Read;
+//use std::io::Write;
 use std::net::*;
-use std::fs::*;
-
+// today i was just doing research about networking and i think i learned something so tomorrow i will finish the tcp server and client and improve all the tcp functions and it's the easiest part of this project but i will do it and finish it no slaking 
 //TODO add more info like image and more
-struct Item {
+/*struct Item {
     name: String,
     path: String,
 }
@@ -20,12 +22,48 @@ fn writer(mut stream:&TcpStream,&item :Item){
     stream.flush().expect("flush");
 
 }
+*/
 
+fn send_mp3_file(filename: &str, server_addr: &str) -> io::Result<()> {
+    // Connect to the server
+    let mut stream = TcpStream::connect(server_addr)?;
+  
+    // Open the MP3 file for reading
+    
+  
+    // Shutdown the sending side of the connection
+    stream.shutdown(Shutdown::Write)?;
+  
+    println!("Sent MP3 file: {}", filename);
+    Ok(())
+}
+  
 
-fn handle_client(mut stream: TcpStream){
-    let mut buff = [0; 1080];
-    let song = Item{name: "bag of bones".to_string(), path: "/path/to/a/song".to_string()};
-    let path = song.path;
+fn handle_client(mut stream: TcpStream) -> io::Result<()> {
+    let filename = "Door.mp3";
+
+    let mut file = fs::File::open(filename)?;
+    let mut file_meta = fs::metadata(filename)?;
+  
+    // Send file size as u64
+    let file_size = file_meta.len();
+    stream.write_all(&file_size.to_be_bytes())?;
+  
+    // Read file in chunks and send
+    let mut buffer = [0; 4096];
+    loop {
+      let bytes_read = file.read(&mut buffer)?;
+      if bytes_read == 0 {
+        break;
+      }
+      stream.write_all(&buffer[..bytes_read])?;
+    }
+    // Shutdown the sending side of the connection
+    stream.shutdown(Shutdown::Write)?;
+
+    println!("Sent MP3 file: {}", filename);
+    Ok(())
+    
     /*let mut buffer = [0; 1024];
     // Read the Incoming data from a client and store it in the buffer
     stream.read(&mut buffer).expect("Failed to read from stream");
@@ -48,7 +86,7 @@ fn main(){
         match stream {
             Ok(stream) => {
                 std::thread::spawn(|| {
-                    handle_client(stream);
+                    let cc = handle_client(stream);
                 });
             }
             Err(e) => {
