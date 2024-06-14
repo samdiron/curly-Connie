@@ -6,7 +6,7 @@ use std::net::*;
 
 fn handle_client(mut stream: TcpStream) -> io::Result<()> {
     println!("client connected");
-    let filename = "/home/sam/Desktop/curly-Connie/Door.mp3";
+    let filename = "path/to/a/file";
 
     let mut file = fs::File::open(filename)?;
     let file_meta = fs::metadata(filename)?;
