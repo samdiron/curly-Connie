@@ -5,6 +5,7 @@ for transefer RTP/TCP
 and the main socket is going to be TCP that send info about the server and files to the client 
 then on the request of the clinet another socket will be activated on the same ip but different port 
 
+
 tools:
 surrealdb for database
 ffmpeg for handling video, audio, and other multimedia files
