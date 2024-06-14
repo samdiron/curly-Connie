@@ -61,7 +61,7 @@ notes
 TODO make a function to read all files that could be sent to the client
 tested with the tcp-client from client backend 
 took 2 second to the file to be writen in the client i think that's good 
-note the filesize is 6 MGB and i could be faster if we removed the println functions
+note the filesize is 6 MGB and it could be faster if we removed the println functions
 this need to be modified to also send more info about the file like the extention, name, image and embeded
 info we will work on that when making the actual Connie
 */
