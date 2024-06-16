@@ -7,6 +7,8 @@ then on the request of the clinet another socket will be activated on the same i
 
 the Connie app is a client and not the socket but it could be turned into an admin client
 runs without the launching the Connie desktop but but to configure it for the first time you would have to launch it and
+note if the server and the Connie are saperate the server will be download alone eather from a github repo or from Connie desktop 
+and it will have a CLI
 
 tools:
 surrealdb for database
