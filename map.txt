@@ -1,4 +1,4 @@
-so to make the server able to do muliable functions we have to use few protocols depending on the use 
+so to make the server able to do muliple functions we have to use few protocols depending on the use 
 for live streaming RTP/UDP // this is not required it's for calls and will not be a priority in dev 
 for video/audio and documents streaming RTMP 
 for transefer RTP/TCP 

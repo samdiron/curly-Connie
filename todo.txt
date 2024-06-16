@@ -5,4 +5,4 @@ but for now we will preconfigur the files to be streamed
 but i think if a file that get streamed more than 1 time will always be in ready to stream form cuz that will reduce the overhead if there is multiple 
 clients at the same time so if a file is streamed alot it will be added to a list of files that are preconfig and if a file has the same name as it it will 
 not be streamed and we think a better way is to make a option to make all files in the server to a stream ready files or download ready files or both but 
-that will take alot of storage  
+that will take alot of storage now that i have multiple machines i colud saperate the cloud from the server and spread the server to multiple machines
