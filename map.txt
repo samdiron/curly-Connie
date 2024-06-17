@@ -23,7 +23,7 @@ frontend we will use next.js for now also tailwind/shadcn will be used
 and in the future a phone client will be made and the tools we're thinking of using for that is 
 react naitve
 and for the all the backend client will be made in pure kotlin to get the fastest preformace 
-note: i will not make an ios version 
+note: i will not make an ios/mac version 
 
 new features that could be added to Connie:
 plugins compatibility,
