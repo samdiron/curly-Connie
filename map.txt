@@ -28,4 +28,6 @@ note: i will not make an ios/mac version
 new features that could be added to Connie:
 plugins compatibility,
 cloud optiones:[an external cloud; internal cloud in the same machine],
+make a inferstrcture for running an AI
+python/mojo module 
 
