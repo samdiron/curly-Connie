@@ -1,6 +1,3 @@
-use std::io::*;
-use std::net::*;
-
-fn main() {
-    println!("Hello, world!");
-}
+/*
+! use the rml_rtmp lib , example of it in examples/threaded_rtmp_server/src in github rust-media-libs
+*/
