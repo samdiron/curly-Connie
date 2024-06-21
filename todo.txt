@@ -10,3 +10,5 @@ that will take alot of storage now that i have multiple machines i colud saperat
 !fork: can't decide what rtmp lib to use options are rml_rtmp / rtmp ; 
 rml_rtmp is built on top of rtmp and has low/high level api the problem that we can't find good documentation for both so we will study project's that use those libs
 for the next few days 
+
+update for now we think that it's better to use rml_rtmp for simplicity and in the future maybe rtmp and build on top of it for more configurations.
