@@ -30,7 +30,7 @@ fn handle_client(mut stream: TcpStream) -> io::Result<()> {
     // Shutdown the sending side of the connection
     stream.shutdown(Shutdown::Write)?;
 
-    println!("Sent MP3 file: {}", filename);
+    println!("Sent file: {}", filename);
     Ok(())
     
 }
