@@ -38,8 +38,8 @@ fn handle_client(mut stream: TcpStream) -> io::Result<()> {
 
 // establishing the server
 fn main(){
-    let listener = TcpListener::bind("127.0.0.1:8000").expect("Failed to bind to port");
-    println!("Listening on: 127.0.0.1:8000");
+    let listener = TcpListener::bind("IP:8000").expect("Failed to bind to port");
+    println!("Listening on: IP:8000");
 
     for stream in listener.incoming() {
         match stream {
