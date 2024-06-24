@@ -7,3 +7,4 @@ backend/rtmp/src/main
 client-backend/tcp-client/target
 client-backend/tcp-client/Cargo.lock
 client-backend/tcp-client/src/main
+.vscode
