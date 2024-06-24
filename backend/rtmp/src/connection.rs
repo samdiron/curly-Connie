@@ -1,9 +1,9 @@
 
 /*
-note this code is not mine it's from (rust-media-libs/examples/threaded_rtmp_server/src
+note: this code is not mine it's from (rust-media-libs/examples/threaded_rtmp_server/src
 /connection.rs) but it's for studing how the rml_rtmp works.
 this is for handling the RTMP handshake it's not complete will not commit the other files it has my info so will not do that now 
-
+!note: will have to copy this file again in the /client-backend/rtmp-client when make it 
 */
 
 
