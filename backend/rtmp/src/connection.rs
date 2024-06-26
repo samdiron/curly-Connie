@@ -89,5 +89,88 @@ impl Connection {
     }
 
 
+    fn handle_handshake_bytes(&mut self, bytes: &[u8]) -> Result<ReadResult, ConnectionError> {
+        let result = match self.handshake.process_bytes(bytes) {
+            Ok(result) => result,
+            Err(error) => {
+                println!("Handshake error: {:?}", error);
+                return Err(ConnectionError::SocketClosed);
+            }
+        };
 
-}
+        match result {
+            HandshakeProcessResult::InProgress { response_bytes } => {
+                if response_bytes.len() > 0 {
+                    self.write(response_bytes);
+                }
+
+                Ok(ReadResult::HandshakingInProgress)
+            }
+
+            HandshakeProcessResult::Completed {
+                response_bytes,
+                remaining_bytes,
+            } => {
+                println!("Handshake successful!");
+                if response_bytes.len() > 0 {
+                    self.write(response_bytes);
+                }
+
+                let mut buffer = [0; BUFFER_SIZE];
+                let buffer_size = remaining_bytes.len();
+                buffer[..buffer_size].copy_from_slice(&remaining_bytes);
+
+                self.handshake_completed = true;
+                Ok(ReadResult::BytesReceived {
+                    buffer,
+                    byte_count: buffer_size,
+                })
+            }
+        }
+    }
+
+
+    fn start_byte_writer(byte_receiver: Receiver<Vec<u8>>, socket: &TcpStream) {
+        let mut socket = socket.try_clone().expect("failed to clone socket");
+        thread::spawn(move || {
+            while let Ok(bytes) = byte_receiver.recv() {
+                if let Err(error) = socket.write_all(&bytes) {
+                    println!("Error writing to socket: {:?}", error);
+                    break;
+                }
+            }
+            socket
+                .shutdown(Shutdown::Write)
+                .expect("failed to shutdown socket (write)");
+        });
+    }
+
+
+    fn start_result_reader(sender: Sender<ReadResult>, socket: &TcpStream) {
+        let mut socket = socket.try_clone().unwrap();
+        thread::spawn(move || {
+            loop {
+                let mut buffer = [0; BUFFER_SIZE];
+                match socket.read(&mut buffer) {
+                    Ok(0) => return, // socket closed
+                    Ok(read_count) => {
+                        let result = ReadResult::BytesReceived {
+                            buffer,
+                            byte_count: read_count,
+                        };
+
+                        if let Err(_) = sender.send(result) {
+                            // receiver has been dropped
+                            return;
+                        }
+                    }
+
+                    Err(error) => {
+                        println!("Error occurred reading from socket: {:?}", error);
+                        return;
+                    }
+                }
+            }
+        });
+    }
+}    
