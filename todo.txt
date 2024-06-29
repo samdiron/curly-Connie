@@ -11,7 +11,7 @@ that will take alot of storage now that i have multiple machines i colud saperat
 rml_rtmp is built on top of rtmp and has low/high level api the problem that we can't find good documentation for both so we will study project's that use those libs;
 for the next few days ;
 
-update for now  think that it's better to use rml_rtmp for simplicity and in the future maybe rtmp and build on top of it for more configurations.
-update will not use it doesn't have all the features that's needed so i will build on top of another rust project;
+update will not rml_rtmp use it doesn't have all the features that's needed so i will build on top of another rust project;
 that has multiple protocols but it's not a crate so will study it for the next few days;
 name of the repo xiu;
+feel like made my look like an idiot
