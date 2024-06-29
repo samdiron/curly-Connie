@@ -1,9 +1,9 @@
 backend/tcp/target
 backend/tcp/Cargo.lock
 backend/tcp/src/main
-backend/rtmp/target
-backend/rtmp/Cargo.lock
-backend/rtmp/src/main
+#backend/rtmp/target
+#backend/rtmp/Cargo.lock
+#backend/rtmp/src/main
 client-backend/tcp-client/target
 client-backend/tcp-client/Cargo.lock
 client-backend/tcp-client/src/main
