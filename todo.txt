@@ -15,3 +15,5 @@ update will not rml_rtmp use it doesn't have all the features that's needed so i
 that has multiple protocols but it's not a crate so will study it for the next few days;
 name of the repo xiu;
 feel like made my look like an idiot
+xiu update can confirm it works out of the box has rtmp, rtsp, hls, httpflv and webrtc
+and has a cli so could be configured to work with Connie server/cli
